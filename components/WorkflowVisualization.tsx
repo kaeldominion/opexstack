@@ -154,7 +154,7 @@ export default function WorkflowVisualization() {
                       )}
                       {step.code.includes("->") && (
                         <>
-                          <span className="text-gray-400 dark:text-gray-500"> -> </span>
+                          <span className="text-gray-400 dark:text-gray-500"> {"->"} </span>
                           <span className="text-green-400">
                             {step.code.split("->")[1]}
                           </span>
