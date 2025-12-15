@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Sun, Moon } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +40,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
         scrolled
           ? "bg-charcoal/95 dark:bg-charcoal/95 bg-white/95 backdrop-blur-md border-b border-steel/50 dark:border-steel/50 border-gray-200 dark:border-gray-800"
           : "bg-transparent"
@@ -53,11 +54,17 @@ export default function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-2xl font-semibold text-gray-900 dark:text-white"
+            className="flex items-center gap-3 text-2xl font-semibold text-gray-900 dark:text-white"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            OPEXSTACK
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Logo className="w-8 h-8" />
+            </motion.div>
+            <span>OPEXSTACK</span>
           </motion.a>
 
           {/* Desktop Menu */}
